@@ -138,12 +138,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">How Northwestern Won the 2018 Big Ten West</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">collegefootball</div>
-                <div class="quarto-category">northwestern</div>
-                <div class="quarto-category">big ten</div>
-              </div>
-                  </div>
+                      </div>
   </div>
     
   
@@ -177,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>text goes here</p>
+<p>In 2018, Northwestern football completed the impossible. The nerds from Evanston became the first team in the Big Ten West not named Wisconsin or Iowa&nbsp;to represent the division in the conference championship game, since the West (and East)&nbsp;division was established in 2014. From a statistical perspective, however, the 2018 rendition of the Wildcats appears to be quite bad, finishing with the third-worst offensive yards per play and right below the middle of the pack when it comes to defensive yards given up per play in the Big Ten. &nbsp;</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -192,90 +187,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>BigTenWest18Ydsv2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"BigTenWest18Ydsv2.csv"</span>)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>NorthwesternWinScoreDiff <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"NorthwesternWinScoreDiff.csv"</span>)</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>northwestern_data <span class="ot">&lt;-</span> BigTenWest18v2 <span class="sc">|&gt;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Team <span class="sc">==</span> <span class="st">"Northwestern"</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bump</span>(<span class="at">data=</span>BigTenWest18v2, <span class="fu">aes</span>(<span class="at">x=</span>Game, <span class="at">y=</span>Wins, <span class="at">color=</span>Team), <span class="at">alpha=</span>.<span class="dv">6</span>) <span class="sc">+</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>BigTenWest18v2, <span class="fu">aes</span>(<span class="at">x=</span>Game, <span class="at">y=</span>Wins, <span class="at">color=</span>Team), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha=</span>.<span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>northwestern_data, <span class="fu">aes</span>(<span class="at">x=</span>Game, <span class="at">y=</span>Wins, <span class="at">color=</span>Team), <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bump</span>(<span class="at">data=</span>northwestern_data, <span class="fu">aes</span>(<span class="at">x=</span>Game, <span class="at">y=</span>Wins, <span class="at">color=</span>Team), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#E84A27"</span>, <span class="st">"#FFCD00"</span>, <span class="st">"#7A0019"</span>, <span class="st">"#E41C38"</span>, <span class="st">"#4E2A84"</span>, <span class="st">"#CEB888"</span>, <span class="st">"#C5050C"</span>)) <span class="sc">+</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">12</span>)) <span class="sc">+</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"How The West Was Won"</span>,</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Northwestern football prevailed after a 1-3 start in</span><span class="sc">\n</span><span class="st">2018, closing the season on a 7-1 record."</span>,</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: Sports-Reference.com | By Tyler Hurst"</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">&amp;</span> </span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>BigTenWest18Ydsv2 <span class="sc">|&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Team) <span class="sc">|&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalPlays =</span> <span class="fu">sum</span>(OffPlays), </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalYards =</span> <span class="fu">sum</span>(OffYds), </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">DefensivePlays =</span> <span class="fu">sum</span>(DefPlays), </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">DefensiveYards =</span> <span class="fu">sum</span>(DefYds)) <span class="sc">|&gt;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">OffensiveYPP =</span> TotalYards<span class="sc">/</span>TotalPlays, </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">DefensiveYPP =</span> DefensiveYards<span class="sc">/</span>DefensivePlays) <span class="ot">-&gt;</span> ypp</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>averages <span class="ot">&lt;-</span> ypp <span class="sc">|&gt;</span> <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">AvgOffYardsPer =</span> <span class="fu">mean</span>(OffensiveYPP), <span class="at">AvgDefYardsPer =</span> <span class="fu">mean</span>(DefensiveYPP))</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>west_teams <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Northwestern"</span>, <span class="st">"Illinois"</span>, <span class="st">"Iowa"</span>, <span class="st">"Minnesota"</span>, <span class="st">"Nebraska"</span>, <span class="st">"Wisconsin"</span>, <span class="st">"Purdue"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>west <span class="ot">&lt;-</span> ypp <span class="sc">|&gt;</span> <span class="fu">filter</span>(Team <span class="sc">%in%</span> west_teams)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>east_teams <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ohio State"</span>, <span class="st">"Indiana"</span>, <span class="st">"Michigan"</span>, <span class="st">"Michigan State"</span>, <span class="st">"Penn State"</span>, <span class="st">"Maryland"</span>, <span class="st">"Rutgers"</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>east <span class="ot">&lt;-</span> ypp <span class="sc">|&gt;</span> <span class="fu">filter</span>(Team <span class="sc">%in%</span> east_teams)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>team_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Illinois"</span> <span class="ot">=</span> <span class="st">"#E84A27"</span>, <span class="st">"Iowa"</span> <span class="ot">=</span> <span class="st">"#FFCD00"</span>, <span class="st">"Minnesota"</span> <span class="ot">=</span> <span class="st">"#7A0019"</span>, <span class="st">"Nebraska"</span> <span class="ot">=</span> <span class="st">"#E41C38"</span>, <span class="st">"Northwestern"</span> <span class="ot">=</span> <span class="st">"#4E2A84"</span>, <span class="st">"Purdue"</span> <span class="ot">=</span> <span class="st">"#CEB888"</span>, <span class="st">"Wisconsin"</span> <span class="ot">=</span> <span class="st">"#C5050C"</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>east, <span class="fu">aes</span>(<span class="at">x=</span>OffensiveYPP, <span class="at">y=</span>DefensiveYPP), <span class="at">color=</span><span class="st">"light grey"</span>, <span class="at">size =</span> <span class="fl">1.4</span>) <span class="sc">+</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>west, <span class="fu">aes</span>(<span class="at">x=</span>OffensiveYPP, <span class="at">y=</span>DefensiveYPP)) <span class="sc">+</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="fl">5.524939</span>, <span class="at">color=</span><span class="st">"dark grey"</span>) <span class="sc">+</span> </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fl">5.726772</span>, <span class="at">color=</span><span class="st">"dark grey"</span>) <span class="sc">+</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fl">6.25</span>, <span class="at">y=</span><span class="dv">5</span>, <span class="at">label=</span><span class="st">"Good Offense, Good Defense"</span>), <span class="at">color=</span><span class="st">"#151515"</span>, <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fl">4.75</span>, <span class="at">y=</span><span class="dv">5</span>, <span class="at">label=</span><span class="st">"Bad Offense, Good Defense"</span>), <span class="at">color=</span><span class="st">"#151515"</span>, <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fl">4.75</span>, <span class="at">y=</span><span class="fl">6.5</span>, <span class="at">label=</span><span class="st">"Bad Defense, Bad Offense"</span>), <span class="at">color=</span><span class="st">"#151515"</span>, <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fl">6.25</span>, <span class="at">y=</span><span class="fl">6.5</span>, <span class="at">label=</span><span class="st">"Bad Defense, Good Offense"</span>), <span class="at">color=</span><span class="st">"#151515"</span>, <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>west, <span class="fu">aes</span>(<span class="at">x=</span>OffensiveYPP, <span class="at">y=</span>DefensiveYPP, <span class="at">label=</span>Team, <span class="at">color=</span>Team)) <span class="sc">+</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>east, <span class="fu">aes</span>(<span class="at">x=</span>OffensiveYPP, <span class="at">y=</span>DefensiveYPP, <span class="at">label=</span>Team, <span class="at">color=</span>Team), <span class="at">size =</span> <span class="fl">2.8</span>) <span class="sc">+</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Average Offensive Yards Per Play"</span>, <span class="at">y=</span><span class="st">"Average Defensive Yards Per Play"</span>, <span class="at">title=</span><span class="st">"Nothing to Write Home About Statistically..."</span>, <span class="at">subtitle=</span><span class="st">"Despite the title of Big Ten West divison champions, Northwestern ranked near the bottom</span><span class="sc">\n</span><span class="st">in offensive yards per play and sported a sub-par defense, compared to other conference teams."</span>, <span class="at">caption=</span><span class="st">"Source: Sports-Reference.com | By Tyler Hurst"</span>) <span class="sc">+</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> team_colors) <span class="sc">+</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>),</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>),</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>text goes here</p>
+<p>So how did Northwestern win the division over multiple teams that ranked statistically better on both offense and defense? The Wildcats won when it mattered. Northwestern finished the season on&nbsp;a 7-1 record (their one loss to No.&nbsp;3 Notre Dame), which included an undefeated 6-0 record against every divisional foe (outside of their win against Purdue that was played week one).&nbsp;</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>BigTenWest18Ydsv2 <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Team) <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalPlays =</span> <span class="fu">sum</span>(OffPlays), </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalYards =</span> <span class="fu">sum</span>(OffYds), </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">DefensivePlays =</span> <span class="fu">sum</span>(DefPlays), </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">DefensiveYards =</span> <span class="fu">sum</span>(DefYds)) <span class="sc">|&gt;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">OffensiveYPP =</span> TotalYards<span class="sc">/</span>TotalPlays, </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">DefensiveYPP =</span> DefensiveYards<span class="sc">/</span>DefensivePlays) <span class="ot">-&gt;</span> ypp</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>averages <span class="ot">&lt;-</span> ypp <span class="sc">|&gt;</span> <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">AvgOffYardsPer =</span> <span class="fu">mean</span>(OffensiveYPP), <span class="at">AvgDefYardsPer =</span> <span class="fu">mean</span>(DefensiveYPP))</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>west_teams <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Northwestern"</span>, <span class="st">"Illinois"</span>, <span class="st">"Iowa"</span>, <span class="st">"Minnesota"</span>, <span class="st">"Nebraska"</span>, <span class="st">"Wisconsin"</span>, <span class="st">"Purdue"</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>west <span class="ot">&lt;-</span> ypp <span class="sc">|&gt;</span> <span class="fu">filter</span>(Team <span class="sc">%in%</span> west_teams)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>east_teams <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ohio State"</span>, <span class="st">"Indiana"</span>, <span class="st">"Michigan"</span>, <span class="st">"Michigan State"</span>, <span class="st">"Penn State"</span>, <span class="st">"Maryland"</span>, <span class="st">"Rutgers"</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>east <span class="ot">&lt;-</span> ypp <span class="sc">|&gt;</span> <span class="fu">filter</span>(Team <span class="sc">%in%</span> east_teams)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>team_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Illinois"</span> <span class="ot">=</span> <span class="st">"#E84A27"</span>, <span class="st">"Iowa"</span> <span class="ot">=</span> <span class="st">"#FFCD00"</span>, <span class="st">"Minnesota"</span> <span class="ot">=</span> <span class="st">"#7A0019"</span>, <span class="st">"Nebraska"</span> <span class="ot">=</span> <span class="st">"#E41C38"</span>, <span class="st">"Northwestern"</span> <span class="ot">=</span> <span class="st">"#4E2A84"</span>, <span class="st">"Purdue"</span> <span class="ot">=</span> <span class="st">"#CEB888"</span>, <span class="st">"Wisconsin"</span> <span class="ot">=</span> <span class="st">"#C5050C"</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>east, <span class="fu">aes</span>(<span class="at">x=</span>OffensiveYPP, <span class="at">y=</span>DefensiveYPP), <span class="at">color=</span><span class="st">"light grey"</span>, <span class="at">size =</span> <span class="fl">1.4</span>) <span class="sc">+</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>west, <span class="fu">aes</span>(<span class="at">x=</span>OffensiveYPP, <span class="at">y=</span>DefensiveYPP)) <span class="sc">+</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="fl">5.524939</span>, <span class="at">color=</span><span class="st">"dark grey"</span>) <span class="sc">+</span> </span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="fl">5.726772</span>, <span class="at">color=</span><span class="st">"dark grey"</span>) <span class="sc">+</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fl">6.25</span>, <span class="at">y=</span><span class="dv">5</span>, <span class="at">label=</span><span class="st">"Good Offense, Good Defense"</span>), <span class="at">color=</span><span class="st">"#151515"</span>, <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fl">4.75</span>, <span class="at">y=</span><span class="dv">5</span>, <span class="at">label=</span><span class="st">"Bad Offense, Good Defense"</span>), <span class="at">color=</span><span class="st">"#151515"</span>, <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fl">4.75</span>, <span class="at">y=</span><span class="fl">6.5</span>, <span class="at">label=</span><span class="st">"Bad Defense, Bad Offense"</span>), <span class="at">color=</span><span class="st">"#151515"</span>, <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fl">6.25</span>, <span class="at">y=</span><span class="fl">6.5</span>, <span class="at">label=</span><span class="st">"Bad Defense, Good Offense"</span>), <span class="at">color=</span><span class="st">"#151515"</span>, <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>west, <span class="fu">aes</span>(<span class="at">x=</span>OffensiveYPP, <span class="at">y=</span>DefensiveYPP, <span class="at">label=</span>Team, <span class="at">color=</span>Team)) <span class="sc">+</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>east, <span class="fu">aes</span>(<span class="at">x=</span>OffensiveYPP, <span class="at">y=</span>DefensiveYPP, <span class="at">label=</span>Team, <span class="at">color=</span>Team), <span class="at">size =</span> <span class="fl">2.8</span>) <span class="sc">+</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Average Offensive Yards Per Play"</span>, <span class="at">y=</span><span class="st">"Average Defensive Yards Per Play"</span>, <span class="at">title=</span><span class="st">"Nobody Said It Would Be Pretty"</span>, <span class="at">subtitle=</span><span class="st">"Despite the title of Big Ten West divison champions, Northwestern ranked near the bottom</span><span class="sc">\n</span><span class="st">in offensive yards per play and sported a sub-par defense, compared to other conference teams"</span>, <span class="at">caption=</span><span class="st">"Source: Sports-Reference.com | By Tyler Hurst"</span>) <span class="sc">+</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> team_colors) <span class="sc">+</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>),</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>),</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>northwestern_data <span class="ot">&lt;-</span> BigTenWest18v2 <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Team <span class="sc">==</span> <span class="st">"Northwestern"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bump</span>(<span class="at">data=</span>BigTenWest18v2, <span class="fu">aes</span>(<span class="at">x=</span>Game, <span class="at">y=</span>Wins, <span class="at">color=</span>Team), <span class="at">alpha=</span>.<span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>BigTenWest18v2, <span class="fu">aes</span>(<span class="at">x=</span>Game, <span class="at">y=</span>Wins, <span class="at">color=</span>Team), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha=</span>.<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>northwestern_data, <span class="fu">aes</span>(<span class="at">x=</span>Game, <span class="at">y=</span>Wins, <span class="at">color=</span>Team), <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bump</span>(<span class="at">data=</span>northwestern_data, <span class="fu">aes</span>(<span class="at">x=</span>Game, <span class="at">y=</span>Wins, <span class="at">color=</span>Team), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#E84A27"</span>, <span class="st">"#FFCD00"</span>, <span class="st">"#7A0019"</span>, <span class="st">"#E41C38"</span>, <span class="st">"#4E2A84"</span>, <span class="st">"#CEB888"</span>, <span class="st">"#C5050C"</span>)) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">12</span>)) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"How The West Was Won"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Northwestern football prevailed after a 1-3 start in 2018, closing</span><span class="sc">\n</span><span class="st">the season on a 7-1 record."</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: Sports-Reference.com | By Tyler Hurst"</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">&amp;</span> </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>), </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>text goes here</p>
+<p>More specifically, the Wildcats were able to&nbsp;win one-possession games. When the mean score differential is calculated for the eight regular season wins for Northwestern in 2018, they won each game by an average of seven points. They only had three regular season wins in double digits, the most being by 14 points against No.&nbsp;20 ranked Wisconsin at the time. &nbsp;</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -296,13 +291,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Sports-Reference.com | By Tyler Hurst"</span>) <span class="sc">+</span> </span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_textbox_simple</span>(),</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">10</span>),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>In conclusion, the 2018 Northwestern Wildcats should be remembered as a gritty squad that was nothing statistically significant, but was able to win games when it mattered. Even though they&nbsp;could not&nbsp;bring home the Big Ten Championship against No.&nbsp;6 Ohio State, they finished the year on a 31-20 victory over No.&nbsp;20 Utah in the Holiday Bowl, cementing one of the most successful seasons in program history.&nbsp;</p>
 
 
 
